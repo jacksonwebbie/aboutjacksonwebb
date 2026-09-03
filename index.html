@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jackson Webb | Official Website</title>
+
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -12,16 +13,19 @@
       background-color: #f9f9f9;
       color: #333;
     }
+
     header {
       background-color: #222;
       color: #fff;
       text-align: center;
       padding: 2rem 1rem;
     }
+
     header h1 {
       margin: 0;
       font-size: 2rem;
     }
+
     main {
       max-width: 800px;
       margin: 2rem auto;
@@ -30,29 +34,141 @@
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
+
+    section {
+      margin-bottom: 2rem;
+    }
+
+    section h2 {
+      margin-top: 0;
+      font-size: 1.5rem;
+      color: #222;
+    }
+
     p {
       font-size: 1.1rem;
       line-height: 1.6;
     }
+
     footer {
       text-align: center;
       padding: 1rem;
       font-size: 0.9rem;
       color: #666;
     }
+
+    /* Navigation System */
+    #sideNav {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background-color: #222;
+      padding: 10px 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+
+    #sideNav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    #sideNav li {
+      margin: 10px 0;
+    }
+
+    #sideNav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    #sideNav a:hover {
+      color: #00aaff;
+    }
   </style>
 </head>
+
 <body>
+
+  <!-- Navigation will be injected here by JS -->
+  
   <header>
     <h1>Welcome to the official website of Jackson Webb.</h1>
   </header>
+
   <main>
-    <p>
-      Here, you’ll discover the story, projects, and passions that define Jackson’s journey — from creative pursuits to professional achievements. Explore his latest work, learn about upcoming ventures, and connect with the ideas that inspire him. Whether you’re here to collaborate, follow his progress, or simply get to know him better, this site is your gateway to everything Jackson Webb.
-    </p>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        Here, you’ll discover the story, projects, and passions that define Jackson’s journey — 
+        from creative pursuits to professional achievements.
+      </p>
+    </section>
+
+    <section id="professional">
+      <h2>Professional</h2>
+      <p>
+        A look into Jackson’s academic background, work experience, and ongoing professional development.
+      </p>
+    </section>
+
+    <section id="projects">
+      <h2>Current Projects</h2>
+      <p>
+        Explore the latest projects Jackson is building, researching, or collaborating on.
+      </p>
+    </section>
+
+    <section id="hobbies">
+      <h2>Hobbies</h2>
+      <p>
+        From personal interests to creative outlets, this section highlights what Jackson enjoys outside of work.
+      </p>
+    </section>
   </main>
+
   <footer>
     © 2026 Jackson Webb. All rights reserved.
   </footer>
+
+  <script>
+    // Create navigation items
+    const navItems = [
+      { name: "About Me", link: "#about" },
+      { name: "Professional", link: "#professional" },
+      { name: "Current Projects", link: "#projects" },
+      { name: "Hobbies", link: "#hobbies" }
+    ];
+
+    // Build the navigation menu
+    function buildNavigation() {
+      const nav = document.createElement("nav");
+      nav.id = "sideNav";
+
+      const list = document.createElement("ul");
+
+      navItems.forEach(item => {
+        const li = document.createElement("li");
+        const a = document.createElement("a");
+
+        a.textContent = item.name;
+        a.href = item.link;
+
+        li.appendChild(a);
+        list.appendChild(li);
+      });
+
+      nav.appendChild(list);
+      document.body.appendChild(nav);
+    }
+
+    // Initialize navigation on page load
+    document.addEventListener("DOMContentLoaded", buildNavigation);
+  </script>
+
 </body>
 </html>
