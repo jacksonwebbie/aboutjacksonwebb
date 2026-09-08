@@ -1,3 +1,4 @@
+// Navigation items used across all pages
 const navItems = [
   { name: "About Me", link: "/about.html" },
   { name: "Professional", link: "/professional.html" },
@@ -6,6 +7,7 @@ const navItems = [
   { name: "Classes", link: "/classes.html" }
 ];
 
+// Build navigation bar
 function buildNavigation() {
   const nav = document.createElement("nav");
   const list = document.createElement("ul");
