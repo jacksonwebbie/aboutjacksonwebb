@@ -1,32 +1,44 @@
-// Navigation items used across all pages
-const navItems = [
-  { name: "About Me", link: "about.html" },
-  { name: "Professional", link: "professional.html" },
-  { name: "Current Projects", link: "projects.html" },
-  { name: "Hobbies", link: "hobbies.html" },
-  { name: "Classes", link: "classes.html" }
-];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Jackson Webb | Official Website</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 
-// Build navigation bar
-function buildNavigation() {
-  const nav = document.createElement("nav");
-  const list = document.createElement("ul");
+<body>
+<div id="page-wrapper">
 
-  navItems.forEach(item => {
-    const li = document.createElement("li");
-    const a = document.createElement("a");
+  <header>
+    <a href="https://www.instagram.com/jacksonwebbie?stkn=cDRqbDBwdnl0NHpw&utm_source=qr" target="_blank">
+      <img src="jw-logo.png" alt="JW Logo" id="logo-img">
+    </a>
+    <div id="site-info">
+      <h1>Welcome to the Official Website of Jackson Webb</h1>
+      <p>Your source for information, updates, and projects from Jackson Webb.</p>
+    </div>
+  </header>
 
-    a.textContent = item.name;
-    a.href = item.link;
+  <div id="hero"></div>
 
-    li.appendChild(a);
-    list.appendChild(li);
-  });
+  <div id="content-area">
+    <div id="main-content">
+      <h2>Main Content Area</h2>
+      <p>Welcome to my official website! Explore my background, projects, hobbies, and academic journey.</p>
+    </div>
 
-  nav.appendChild(list);
+    <div id="sidebar">
+      <h3>Sticky Content</h3>
+      <p>News updates</p>
+      <p>Announcements</p>
+      <p>General site information</p>
+    </div>
+  </div>
 
-  const header = document.querySelector("header");
-  header.insertAdjacentElement("afterend", nav);
-}
+  <footer>© 2026 Jackson Webb</footer>
 
-document.addEventListener("DOMContentLoaded", buildNavigation);
+</div>
+
+<script src="navigation.js"></script>
+</body>
+</html>
