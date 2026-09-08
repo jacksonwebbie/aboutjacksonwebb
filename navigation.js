@@ -1,10 +1,10 @@
 // Navigation items used across all pages
 const navItems = [
-  { name: "About Me", link: "/about.html" },
-  { name: "Professional", link: "/professional.html" },
-  { name: "Current Projects", link: "/projects.html" },
-  { name: "Hobbies", link: "/hobbies.html" },
-  { name: "Classes", link: "/classes.html" }
+  { name: "About Me", link: "about.html" },
+  { name: "Professional", link: "professional.html" },
+  { name: "Current Projects", link: "projects.html" },
+  { name: "Hobbies", link: "hobbies.html" },
+  { name: "Classes", link: "classes.html" }
 ];
 
 // Build navigation bar
