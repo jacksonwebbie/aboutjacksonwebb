@@ -25,10 +25,8 @@ function buildNavigation() {
 
   nav.appendChild(list);
 
-  // Insert navigation right after the header
   const header = document.querySelector("header");
   header.insertAdjacentElement("afterend", nav);
 }
 
-// Initialize navigation on page load
 document.addEventListener("DOMContentLoaded", buildNavigation);
