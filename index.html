@@ -1,47 +1,61 @@
-// Navigation items for the simplified website
-const navItems = [
-  { name: "Home", link: "index.html" }
-];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Jackson Webb | Official Page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 
-// Build navigation bar
-function buildNavigation() {
-  const nav = document.createElement("nav");
-  const list = document.createElement("ul");
+<body>
+<div id="page-wrapper">
 
-  navItems.forEach(item => {
-    const li = document.createElement("li");
-    const a = document.createElement("a");
+  <!-- HEADER -->
+  <header>
+    <div id="header-content">
+      <h1 class="main-title">J A C K S O N&nbsp;&nbsp;W E B B</h1>
 
-    a.textContent = item.name;
-    a.href = item.link;
+      <p class="subtitle">
+        W&nbsp;E&nbsp;L&nbsp;C&nbsp;O&nbsp;M&nbsp;E&nbsp;&nbsp;&nbsp;T&nbsp;O&nbsp;&nbsp;&nbsp;M&nbsp;Y&nbsp;&nbsp;&nbsp;O&nbsp;F&nbsp;F&nbsp;I&nbsp;C&nbsp;I&nbsp;A&nbsp;L&nbsp;&nbsp;&nbsp;P&nbsp;A&nbsp;G&nbsp;E
+      </p>
 
-    li.appendChild(a);
-    list.appendChild(li);
-  });
+      <a href="https://www.instagram.com/jacksonwebbie?stkn=cDRqbDBwdnl0NHpw&utm_source=qr" target="_blank">
+        <img src="jw-logo.png" alt="JW Logo" id="logo-img">
+      </a>
+    </div>
+  </header>
 
-  nav.appendChild(list);
+  <!-- NAVIGATION -->
+  <script src="navigation.js"></script>
 
-  nav.style.background = "#4db8ff"; /* sky blue */
-  nav.style.padding = "15px 0";
-  nav.style.textAlign = "center";
+  <!-- HERO -->
+  <section id="hero">
+    <div class="overlay">
+      <h2>INSPIRED BY EXCELLENCE</h2>
+      <p>Driven by creativity, precision, and purpose.</p>
+    </div>
+  </section>
 
-  list.style.listStyle = "none";
-  list.style.display = "flex";
-  list.style.justifyContent = "center";
-  list.style.gap = "40px";
+  <!-- CONTENT -->
+  <main id="content-area">
+    <div id="main-content">
+      <h2>Welcome</h2>
+      <p>
+        This is my official website — rebuilt with a bold, modern design inspired by FaZe Clan’s aesthetic.
+        The layout emphasizes clean contrast, strong typography, and a professional edge.
+      </p>
+    </div>
 
-  const links = list.querySelectorAll("a");
-  links.forEach(link => {
-    link.style.color = "#000";
-    link.style.textDecoration = "none";
-    link.style.fontWeight = "600";
-    link.style.fontSize = "1.1rem";
-    link.addEventListener("mouseover", () => link.style.color = "#fff");
-    link.addEventListener("mouseout", () => link.style.color = "#000");
-  });
+    <aside id="sidebar">
+      <h3>Latest Updates</h3>
+      <p>Website redesign complete.</p>
+      <p>Logo linked to Instagram.</p>
+      <p>New sky‑blue theme applied.</p>
+    </aside>
+  </main>
 
-  const header = document.querySelector("header");
-  header.insertAdjacentElement("afterend", nav);
-}
+  <!-- FOOTER -->
+  <footer>© 2026 Jackson Webb</footer>
 
-document.addEventListener("DOMContentLoaded", buildNavigation);
+</div>
+</body>
+</html>
