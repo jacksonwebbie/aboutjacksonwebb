@@ -22,24 +22,36 @@ header {
   padding: 20px;
   background: #222;
   color: white;
+  border-radius: 8px 8px 0 0;
 }
 
-header #logo {
+header #logo img {
   width: 120px;
   height: 120px;
-  background: #444;
-  margin-right: 20px;
   border-radius: 8px;
+  margin-right: 20px;
 }
 
 header #site-info {
   flex: 1;
 }
 
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+header p {
+  margin-top: 8px;
+  font-size: 1rem;
+  color: #ccc;
+}
+
 /* PRIMARY NAVIGATION */
 nav {
   background: #333;
   padding: 10px 20px;
+  border-radius: 0 0 8px 8px;
 }
 
 nav ul {
@@ -47,6 +59,7 @@ nav ul {
   margin: 0;
   padding: 0;
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
 }
 
@@ -54,6 +67,7 @@ nav a {
   color: white;
   text-decoration: none;
   font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 nav a:hover {
@@ -72,6 +86,7 @@ nav a:hover {
 /* MAIN CONTENT + SIDEBAR LAYOUT */
 #content-area {
   display: flex;
+  flex-wrap: wrap;
   margin-top: 20px;
   gap: 20px;
 }
@@ -104,4 +119,24 @@ footer {
   color: white;
   text-align: center;
   border-radius: 8px;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  #content-area {
+    flex-direction: column;
+  }
+
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  header #logo img {
+    margin-bottom: 10px;
+  }
+
+  nav ul {
+    justify-content: center;
+  }
 }
