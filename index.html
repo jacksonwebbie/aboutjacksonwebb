@@ -1,76 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Jackson Webb | Official Website</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+// Navigation items used across all pages
+const navItems = [
+  { name: "About Me", link: "/about.html" },
+  { name: "Professional", link: "/professional.html" },
+  { name: "Current Projects", link: "/projects.html" },
+  { name: "Hobbies", link: "/hobbies.html" },
+  { name: "Classes", link: "/classes.html" }
+];
 
-<body>
-<div id="page-wrapper">
+// Build navigation bar
+function buildNavigation() {
+  const nav = document.createElement("nav");
+  const list = document.createElement("ul");
 
-  <!-- HEADER -->
-  <header>
-    <a href="https://www.instagram.com/jacksonwebbie?stkn=cDRqbDBwdnl0NHpw&utm_source=qr" 
-       target="_blank" 
-       id="logo-link">
-      <img src="jw-logo.png" alt="JW Logo" id="logo-img">
-    </a>
+  navItems.forEach(item => {
+    const li = document.createElement("li");
+    const a = document.createElement("a");
 
-    <div id="site-info">
-      <h1>Welcome to the Official Website of Jackson Webb</h1>
-      <p>Your source for information, updates, and projects from Jackson Webb.</p>
-    </div>
-  </header>
+    a.textContent = item.name;
+    a.href = item.link;
 
-  <!-- Navigation auto-injected by navigation.js -->
+    li.appendChild(a);
+    list.appendChild(li);
+  });
 
-  <!-- HERO IMAGE -->
-  <div id="hero"></div>
+  nav.appendChild(list);
 
-  <!-- MAIN CONTENT + SIDEBAR -->
-  <div id="content-area">
+  const header = document.querySelector("header");
+  header.insertAdjacentElement("afterend", nav);
+}
 
-    <!-- MAIN CONTENT -->
-    <div id="main-content">
-      <h2>Main Content Area</h2>
-      <p>
-        This is the main content area of the website. It is designed to hold real HTML text and images,
-        following SEO‑friendly guidelines. The layout ensures readability, structure, and accessibility
-        while maintaining a clean and modern design.
-        <br><br>
-        As the official website of Jackson Webb, this space highlights important updates, personal
-        background, professional achievements, ongoing projects, and creative hobbies. The goal is to
-        provide visitors with a clear understanding of Jackson’s work, interests, and long‑term goals.
-        <br><br>
-        Content placed here can include articles, project descriptions, photos, embedded media, or
-        announcements. The structure supports approximately 400 words of text with a keyword density of
-        5–7% for optimal search engine visibility.
-        <br><br>
-        This area is flexible and can be updated frequently to reflect new accomplishments, events,
-        or personal milestones. Whether you're exploring Jackson’s academic journey, professional
-        development, or creative pursuits, this section serves as the central hub for all meaningful
-        information.
-      </p>
-    </div>
-
-    <!-- SIDEBAR -->
-    <div id="sidebar">
-      <h3>Sticky Content</h3>
-      <p>News updates</p>
-      <p>Offers & announcements</p>
-      <p>General site information</p>
-      <p>Social media icons</p>
-    </div>
-  </div>
-
-  <!-- FOOTER -->
-  <footer>
-    © 2026 Jackson Webb — Contact | Privacy | Webmaster Email
-  </footer>
-
-</div>
-
-<script src="navigation.js"></script>
-</body>
-</html>
+document.addEventListener("DOMContentLoaded", buildNavigation);
