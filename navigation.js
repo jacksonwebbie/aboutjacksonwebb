@@ -4,7 +4,7 @@ const navItems = [
   { name: "Professional", link: "/professional.html" },
   { name: "Current Projects", link: "/projects.html" },
   { name: "Hobbies", link: "/hobbies.html" },
-  { name: "Classes", link: "/classes.html" } // new addition
+  { name: "Classes", link: "/classes.html" }
 ];
 
 // Build navigation bar
