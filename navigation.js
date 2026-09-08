@@ -21,7 +21,7 @@ function buildNavigation() {
 
   nav.appendChild(list);
 
-  nav.style.background = "#e60000";
+  nav.style.background = "#4db8ff"; /* sky blue */
   nav.style.padding = "15px 0";
   nav.style.textAlign = "center";
 
@@ -32,12 +32,12 @@ function buildNavigation() {
 
   const links = list.querySelectorAll("a");
   links.forEach(link => {
-    link.style.color = "#fff";
+    link.style.color = "#000";
     link.style.textDecoration = "none";
     link.style.fontWeight = "600";
     link.style.fontSize = "1.1rem";
-    link.addEventListener("mouseover", () => link.style.color = "#000");
-    link.addEventListener("mouseout", () => link.style.color = "#fff");
+    link.addEventListener("mouseover", () => link.style.color = "#fff");
+    link.addEventListener("mouseout", () => link.style.color = "#000");
   });
 
   const header = document.querySelector("header");
