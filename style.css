@@ -2,7 +2,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #e6d6ff;
+  background-color: #e6d6ff; /* light purple */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -15,7 +15,7 @@ body {
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-/* HEADER */
+/* HEADER AREA */
 header {
   display: flex;
   align-items: center;
@@ -33,6 +33,7 @@ header {
   margin-right: 20px;
   cursor: pointer;
 
+  /* Light purple glow */
   box-shadow: 0 0 25px 8px rgba(230, 214, 255, 0.9);
 }
 
@@ -51,7 +52,7 @@ header p {
   color: #ccc;
 }
 
-/* NAVIGATION */
+/* PRIMARY NAVIGATION */
 nav {
   background: #333;
   padding: 10px 20px;
@@ -78,7 +79,7 @@ nav a:hover {
   color: #00aaff;
 }
 
-/* HERO */
+/* HERO IMAGE */
 #hero {
   width: 100%;
   height: 250px;
@@ -87,7 +88,7 @@ nav a:hover {
   border-radius: 8px;
 }
 
-/* CONTENT AREA */
+/* MAIN CONTENT + SIDEBAR LAYOUT */
 #content-area {
   display: flex;
   flex-wrap: wrap;
@@ -103,7 +104,7 @@ nav a:hover {
   border-radius: 8px;
 }
 
-/* SIDEBAR */
+/* STICKY SIDEBAR */
 #sidebar {
   flex: 1;
   background: #f4f4f4;
@@ -125,7 +126,7 @@ footer {
   border-radius: 8px;
 }
 
-/* RESPONSIVE */
+/* RESPONSIVE DESIGN */
 @media (max-width: 768px) {
   #content-area {
     flex-direction: column;
