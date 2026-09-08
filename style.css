@@ -27,7 +27,7 @@ header {
   border-bottom: 3px solid #4db8ff;
 }
 
-/* MAIN TITLE — auto-fit, no wrap, no overflow */
+/* MAIN TITLE */
 .main-title {
   font-size: clamp(2.5rem, 7vw, 5rem);
   font-weight: 900;
@@ -41,7 +41,7 @@ header {
   max-width: 100%;
 }
 
-/* SUBTITLE — EXACT SAME WIDTH AS MAIN TITLE */
+/* SUBTITLE */
 .subtitle {
   font-size: clamp(0.7rem, 1.2vw, 1rem);
   color: #4db8ff;
@@ -67,6 +67,56 @@ header {
 
 #logo-img:hover {
   transform: scale(1.05);
+}
+
+/* NAVIGATION BAR */
+nav {
+  background: #4db8ff;
+  padding: 15px 0;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+nav a {
+  color: #000;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+nav a:hover {
+  color: #fff;
+}
+
+/* SECONDARY BUTTON */
+#secondary-button-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+#secondary-button {
+  width: 50%;
+  max-width: 300px;
+  background-color: #b0c4de; /* sky grey */
+  color: #000;
+  padding: 12px 0;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+#secondary-button:hover {
+  background-color: #c7d6e5;
 }
 
 /* HERO SECTION */
@@ -153,5 +203,9 @@ footer {
 @media (max-width: 768px) {
   #content-area {
     flex-direction: column;
+  }
+
+  #secondary-button {
+    width: 80%;
   }
 }
