@@ -21,6 +21,25 @@ function buildNavigation() {
 
   nav.appendChild(list);
 
+  nav.style.background = "#e60000";
+  nav.style.padding = "15px 0";
+  nav.style.textAlign = "center";
+
+  list.style.listStyle = "none";
+  list.style.display = "flex";
+  list.style.justifyContent = "center";
+  list.style.gap = "40px";
+
+  const links = list.querySelectorAll("a");
+  links.forEach(link => {
+    link.style.color = "#fff";
+    link.style.textDecoration = "none";
+    link.style.fontWeight = "600";
+    link.style.fontSize = "1.1rem";
+    link.addEventListener("mouseover", () => link.style.color = "#000");
+    link.addEventListener("mouseout", () => link.style.color = "#fff");
+  });
+
   const header = document.querySelector("header");
   header.insertAdjacentElement("afterend", nav);
 }
