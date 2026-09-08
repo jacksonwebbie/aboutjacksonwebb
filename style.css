@@ -27,35 +27,39 @@ header {
   border-bottom: 3px solid #4db8ff; /* sky blue */
 }
 
-/* MAIN TITLE */
+/* MAIN TITLE — auto‑scales, never wraps, never overflows */
 .main-title {
-  font-size: clamp(3rem, 8vw, 6rem); /* auto scales, never wraps */
+  font-size: clamp(2.5rem, 7vw, 5rem);
   font-weight: 900;
-  letter-spacing: clamp(0.5rem, 2vw, 1.2rem);
+  letter-spacing: clamp(0.4rem, 1.5vw, 1rem);
   color: #fff;
   text-transform: uppercase;
   text-align: center;
   margin-bottom: 10px;
-  white-space: nowrap; /* prevents wrapping */
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 100%;
 }
 
-/* SUBTITLE */
+/* SUBTITLE — auto‑scales, spaced, never overflows */
 .subtitle {
-  font-size: clamp(0.8rem, 1.5vw, 1.2rem);
-  color: #4db8ff; /* sky blue */
+  font-size: clamp(0.7rem, 1.2vw, 1rem);
+  color: #4db8ff;
   text-align: center;
-  letter-spacing: clamp(0.7rem, 2vw, 1.3rem);
+  letter-spacing: clamp(0.6rem, 1.5vw, 1.1rem);
   text-transform: uppercase;
   margin-bottom: 30px;
-  white-space: nowrap; /* prevents wrapping */
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 100%;
 }
 
 /* LOGO */
 #logo-img {
-  width: 140px;
-  height: 140px;
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
-  box-shadow: 0 0 30px 10px rgba(77, 184, 255, 0.7); /* sky blue glow */
+  box-shadow: 0 0 30px 10px rgba(77, 184, 255, 0.7);
   transition: transform 0.3s ease;
 }
 
@@ -68,7 +72,7 @@ header {
   position: relative;
   background: url('hero-bg.jpg') center/cover no-repeat;
   height: 400px;
-  border-bottom: 3px solid #4db8ff; /* sky blue */
+  border-bottom: 3px solid #4db8ff;
 }
 
 #hero .overlay {
@@ -86,7 +90,7 @@ header {
 
 #hero h2 {
   font-size: 2.5rem;
-  color: #4db8ff; /* sky blue */
+  color: #4db8ff;
   letter-spacing: 0.3rem;
   text-transform: uppercase;
 }
@@ -111,7 +115,7 @@ header {
   background: #111;
   padding: 30px;
   border-radius: 8px;
-  box-shadow: 0 0 15px rgba(77, 184, 255, 0.3); /* sky blue */
+  box-shadow: 0 0 15px rgba(77, 184, 255, 0.3);
 }
 
 #main-content h2 {
@@ -125,7 +129,7 @@ header {
   background: #1a1a1a;
   padding: 30px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(77, 184, 255, 0.2); /* sky blue */
+  box-shadow: 0 0 10px rgba(77, 184, 255, 0.2);
 }
 
 #sidebar h3 {
@@ -140,7 +144,7 @@ footer {
   text-align: center;
   background: #111;
   color: #ccc;
-  border-top: 3px solid #4db8ff; /* sky blue */
+  border-top: 3px solid #4db8ff;
 }
 
 /* RESPONSIVE */
