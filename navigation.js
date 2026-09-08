@@ -1,16 +1,14 @@
-// Create navigation items
+// Navigation items used across all pages
 const navItems = [
-  { name: "About Me", link: "#about" },
-  { name: "Professional", link: "#professional" },
-  { name: "Current Projects", link: "#projects" },
-  { name: "Hobbies", link: "#hobbies" }
+  { name: "About Me", link: "/about.html" },
+  { name: "Professional", link: "/professional.html" },
+  { name: "Current Projects", link: "/projects.html" },
+  { name: "Hobbies", link: "/hobbies.html" }
 ];
 
-// Build the navigation menu
+// Build navigation bar
 function buildNavigation() {
   const nav = document.createElement("nav");
-  nav.id = "sideNav";
-
   const list = document.createElement("ul");
 
   navItems.forEach(item => {
@@ -25,7 +23,10 @@ function buildNavigation() {
   });
 
   nav.appendChild(list);
-  document.body.appendChild(nav);
+
+  // Insert navigation right after the header
+  const header = document.querySelector("header");
+  header.insertAdjacentElement("afterend", nav);
 }
 
 // Initialize navigation on page load
