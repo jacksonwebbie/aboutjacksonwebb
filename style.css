@@ -24,10 +24,10 @@ header {
   text-align: center;
   padding: 60px 20px 20px;
   background: linear-gradient(180deg, #111 0%, #000 100%);
-  border-bottom: 3px solid #4db8ff; /* sky blue */
+  border-bottom: 3px solid #4db8ff;
 }
 
-/* MAIN TITLE — auto‑scales, never wraps, never overflows */
+/* MAIN TITLE — auto-fit, no wrap, no overflow */
 .main-title {
   font-size: clamp(2.5rem, 7vw, 5rem);
   font-weight: 900;
@@ -41,7 +41,7 @@ header {
   max-width: 100%;
 }
 
-/* SUBTITLE — auto‑scales, spaced, never overflows */
+/* SUBTITLE — EXACT SAME WIDTH AS MAIN TITLE */
 .subtitle {
   font-size: clamp(0.7rem, 1.2vw, 1rem);
   color: #4db8ff;
@@ -51,7 +51,9 @@ header {
   margin-bottom: 30px;
   white-space: nowrap;
   overflow: hidden;
-  max-width: 100%;
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* LOGO */
