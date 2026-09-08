@@ -1,47 +1,157 @@
-// Navigation items for the simplified website
-const navItems = [
-  { name: "Home", link: "index.html" }
-];
-
-// Build navigation bar
-function buildNavigation() {
-  const nav = document.createElement("nav");
-  const list = document.createElement("ul");
-
-  navItems.forEach(item => {
-    const li = document.createElement("li");
-    const a = document.createElement("a");
-
-    a.textContent = item.name;
-    a.href = item.link;
-
-    li.appendChild(a);
-    list.appendChild(li);
-  });
-
-  nav.appendChild(list);
-
-  nav.style.background = "#4db8ff";
-  nav.style.padding = "15px 0";
-  nav.style.textAlign = "center";
-
-  list.style.listStyle = "none";
-  list.style.display = "flex";
-  list.style.justifyContent = "center";
-  list.style.gap = "40px";
-
-  const links = list.querySelectorAll("a");
-  links.forEach(link => {
-    link.style.color = "#000";
-    link.style.textDecoration = "none";
-    link.style.fontWeight = "600";
-    link.style.fontSize = "1.1rem";
-    link.addEventListener("mouseover", () => link.style.color = "#fff");
-    link.addEventListener("mouseout", () => link.style.color = "#000");
-  });
-
-  const header = document.querySelector("header");
-  header.insertAdjacentElement("afterend", nav);
+/* GLOBAL RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-document.addEventListener("DOMContentLoaded", buildNavigation);
+/* BODY */
+body {
+  background-color: #0a0a0a;
+  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* PAGE WRAPPER */
+#page-wrapper {
+  width: 90%;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+/* HEADER */
+header {
+  text-align: center;
+  padding: 60px 20px 20px;
+  background: linear-gradient(180deg, #111 0%, #000 100%);
+  border-bottom: 3px solid #4db8ff;
+}
+
+/* MAIN TITLE — auto-fit, no wrap, no overflow */
+.main-title {
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  font-weight: 900;
+  letter-spacing: clamp(0.4rem, 1.5vw, 1rem);
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+/* SUBTITLE — EXACT SAME WIDTH AS MAIN TITLE */
+.subtitle {
+  font-size: clamp(0.7rem, 1.2vw, 1rem);
+  color: #4db8ff;
+  text-align: center;
+  letter-spacing: clamp(0.6rem, 1.5vw, 1.1rem);
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* LOGO */
+#logo-img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  box-shadow: 0 0 30px 10px rgba(77, 184, 255, 0.7);
+  transition: transform 0.3s ease;
+}
+
+#logo-img:hover {
+  transform: scale(1.05);
+}
+
+/* HERO SECTION */
+#hero {
+  position: relative;
+  background: url('hero-bg.jpg') center/cover no-repeat;
+  height: 400px;
+  border-bottom: 3px solid #4db8ff;
+}
+
+#hero .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#hero h2 {
+  font-size: 2.5rem;
+  color: #4db8ff;
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
+}
+
+#hero p {
+  font-size: 1.2rem;
+  color: #ccc;
+  margin-top: 10px;
+}
+
+/* CONTENT AREA */
+#content-area {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  gap: 30px;
+}
+
+/* MAIN CONTENT */
+#main-content {
+  flex: 3;
+  background: #111;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(77, 184, 255, 0.3);
+}
+
+#main-content h2 {
+  color: #4db8ff;
+  margin-bottom: 15px;
+}
+
+/* SIDEBAR */
+#sidebar {
+  flex: 1;
+  background: #1a1a1a;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(77, 184, 255, 0.2);
+}
+
+#sidebar h3 {
+  color: #4db8ff;
+  margin-bottom: 15px;
+}
+
+/* FOOTER */
+footer {
+  margin-top: 60px;
+  padding: 20px;
+  text-align: center;
+  background: #111;
+  color: #ccc;
+  border-top: 3px solid #4db8ff;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  #content-area {
+    flex-direction: column;
+  }
+}
