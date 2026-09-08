@@ -21,7 +21,7 @@ function buildNavigation() {
 
   nav.appendChild(list);
 
-  nav.style.background = "#4db8ff"; /* sky blue */
+  nav.style.background = "#4db8ff";
   nav.style.padding = "15px 0";
   nav.style.textAlign = "center";
 
