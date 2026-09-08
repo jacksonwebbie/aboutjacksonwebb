@@ -25,12 +25,16 @@ header {
   border-radius: 8px 8px 0 0;
 }
 
+/* LOGO WITH PURPLE GLOW */
 #logo-img {
   width: 120px;
   height: 120px;
   border-radius: 8px;
   margin-right: 20px;
   cursor: pointer;
+
+  /* Light purple glow */
+  box-shadow: 0 0 25px 8px rgba(230, 214, 255, 0.9);
 }
 
 header #site-info {
