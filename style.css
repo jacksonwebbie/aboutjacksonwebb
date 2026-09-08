@@ -35,18 +35,24 @@ header {
   box-shadow: 0 0 25px 8px rgba(230, 214, 255, 0.9);
 }
 
-/* MAIN TITLE */
+/* MAIN TITLE — HUGE + CENTERED + SPACED */
 .main-title {
-  font-size: 3.2rem;
-  font-weight: 700;
+  font-size: 4.5rem;
+  font-weight: 900;
+  text-align: center;
+  letter-spacing: 0.6rem;
   margin: 0;
+  width: 100%;
 }
 
-/* SUBTITLE */
+/* SUBTITLE — CENTERED + SPACED */
 .subtitle {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   color: #cccccc;
-  margin-top: 8px;
+  text-align: center;
+  letter-spacing: 0.5rem;
+  margin-top: 10px;
+  width: 100%;
 }
 
 /* NAVIGATION */
