@@ -2,11 +2,11 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #e6d6ff; /* light purple */
+  background-color: #e6d6ff;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* 10% margin on each side */
+/* PAGE WRAPPER */
 #page-wrapper {
   width: 80%;
   margin: 0 auto;
@@ -15,7 +15,7 @@ body {
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-/* HEADER AREA */
+/* HEADER */
 header {
   display: flex;
   align-items: center;
@@ -25,34 +25,17 @@ header {
   border-radius: 8px 8px 0 0;
 }
 
-/* LOGO WITH PURPLE GLOW */
+/* LOGO */
 #logo-img {
   width: 120px;
   height: 120px;
   border-radius: 8px;
   margin-right: 20px;
   cursor: pointer;
-
-  /* Light purple glow */
   box-shadow: 0 0 25px 8px rgba(230, 214, 255, 0.9);
 }
 
-header #site-info {
-  flex: 1;
-}
-
-header h1 {
-  margin: 0;
-  font-size: 1.8rem;
-}
-
-header p {
-  margin-top: 8px;
-  font-size: 1rem;
-  color: #ccc;
-}
-
-/* PRIMARY NAVIGATION */
+/* NAVIGATION */
 nav {
   background: #333;
   padding: 10px 20px;
@@ -64,7 +47,6 @@ nav ul {
   margin: 0;
   padding: 0;
   display: flex;
-  flex-wrap: wrap;
   gap: 20px;
 }
 
@@ -72,14 +54,13 @@ nav a {
   color: white;
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.3s ease;
 }
 
 nav a:hover {
   color: #00aaff;
 }
 
-/* HERO IMAGE */
+/* HERO */
 #hero {
   width: 100%;
   height: 250px;
@@ -88,10 +69,9 @@ nav a:hover {
   border-radius: 8px;
 }
 
-/* MAIN CONTENT + SIDEBAR LAYOUT */
+/* CONTENT AREA */
 #content-area {
   display: flex;
-  flex-wrap: wrap;
   margin-top: 20px;
   gap: 20px;
 }
@@ -113,7 +93,6 @@ nav a:hover {
   position: sticky;
   top: 20px;
   height: fit-content;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
 }
 
 /* FOOTER */
@@ -124,24 +103,4 @@ footer {
   color: white;
   text-align: center;
   border-radius: 8px;
-}
-
-/* RESPONSIVE DESIGN */
-@media (max-width: 768px) {
-  #content-area {
-    flex-direction: column;
-  }
-
-  header {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  #logo-img {
-    margin-bottom: 10px;
-  }
-
-  nav ul {
-    justify-content: center;
-  }
 }
