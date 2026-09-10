@@ -15,7 +15,7 @@
   border-radius: 50%;
   transform: translate(-50%, -50%);
   animation: pulse 2.2s infinite ease-in-out;
-  z-index: 9999;
+  z-index: 1;
 }
 
 @keyframes pulse {
@@ -55,9 +55,6 @@ header {
   text-transform: uppercase;
   text-align: center;
   margin-bottom: 10px;
-  white-space: nowrap;
-  overflow: hidden;
-  max-width: 100%;
 }
 
 /* SUBTITLE */
@@ -68,11 +65,6 @@ header {
   letter-spacing: clamp(0.6rem, 1.5vw, 1.1rem);
   text-transform: uppercase;
   margin-bottom: 30px;
-  white-space: nowrap;
-  overflow: hidden;
-  max-width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 /* LOGO */
@@ -88,18 +80,19 @@ header {
   transform: scale(1.05);
 }
 
-/* NAVIGATION BAR */
+/* BLUE NAV BAR — HOME ONLY */
 nav {
   background: #4db8ff;
   padding: 15px 0;
   text-align: center;
+  position: relative;
+  z-index: 10;
 }
 
 nav ul {
   list-style: none;
   display: flex;
   justify-content: center;
-  gap: 40px;
 }
 
 nav a {
@@ -109,11 +102,7 @@ nav a {
   font-size: 1.1rem;
 }
 
-nav a:hover {
-  color: #ffffff;
-}
-
-/* BUTTON ROW */
+/* GREY BUTTON ROW */
 #button-row {
   display: flex;
   justify-content: center;
@@ -139,14 +128,14 @@ nav a:hover {
   background-color: #c7d6e5;
 }
 
-/* INLINE LINKS — LIGHT BLUE */
+/* INLINE LINKS */
 .inline-link {
   color: #6ec6ff;
   font-weight: 700;
   text-decoration: underline;
 }
 
-/* HERO SECTION */
+/* HERO */
 #hero {
   position: relative;
   background: url('hero-bg.jpg') center/cover no-repeat;
@@ -170,14 +159,11 @@ nav a:hover {
 #hero h2 {
   font-size: 2.5rem;
   color: #4db8ff;
-  letter-spacing: 0.3rem;
-  text-transform: uppercase;
 }
 
 #hero p {
   font-size: 1.2rem;
   color: #333333;
-  margin-top: 10px;
 }
 
 /* CONTENT AREA */
@@ -198,13 +184,11 @@ nav a:hover {
 
 #main-content h2 {
   color: #4db8ff;
-  margin-bottom: 15px;
 }
 
 #main-content p {
   font-size: 1.05rem;
   line-height: 1.6;
-  color: #000000;
 }
 
 /* SIDEBAR */
@@ -218,11 +202,6 @@ nav a:hover {
 
 #sidebar h3 {
   color: #4db8ff;
-  margin-bottom: 15px;
-}
-
-#sidebar p {
-  color: #000000;
 }
 
 /* FOOTER */
