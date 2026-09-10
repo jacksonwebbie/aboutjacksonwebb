@@ -120,6 +120,13 @@ nav a:hover {
   background-color: #c7d6e5;
 }
 
+/* INLINE LINKS */
+.inline-link {
+  color: #4db8ff;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
 /* HERO SECTION */
 #hero {
   position: relative;
