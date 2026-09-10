@@ -1,89 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Jackson Webb | Official Page</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+// Navigation items for the simplified website
+const navItems = [
+  { name: "Home", link: "index.html" },
+  { name: "About", link: "about.html" },
+  { name: "Schedule", link: "schedule.html" },
+  { name: "Explore", link: "explore.html" },
+  { name: "Classes", link: "classes.html" },
+  { name: "Shop", link: "shop.html" }
+];
 
-<body>
-<div id="cursor-glow"></div>
+// Build navigation bar
+function buildNavigation() {
+  const nav = document.createElement("nav");
+  const list = document.createElement("ul");
 
-<div id="page-wrapper">
+  navItems.forEach(item => {
+    const li = document.createElement("li");
+    const a = document.createElement("a");
 
-  <!-- HEADER -->
-  <header>
-    <div id="header-content">
+    a.textContent = item.name;
+    a.href = item.link;
 
-      <h1 class="main-title">J A C K S O N&nbsp;&nbsp;W E B B</h1>
+    li.appendChild(a);
+    list.appendChild(li);
+  });
 
-      <p class="subtitle">
-        W&nbsp;E&nbsp;L&nbsp;C&nbsp;O&nbsp;M&nbsp;E&nbsp;&nbsp;&nbsp;T&nbsp;O&nbsp;&nbsp;&nbsp;M&nbsp;Y&nbsp;&nbsp;&nbsp;O&nbsp;F&nbsp;F&nbsp;I&nbsp;C&nbsp;I&nbsp;A&nbsp;L&nbsp;&nbsp;&nbsp;P&nbsp;A&nbsp;G&nbsp;E
-      </p>
+  nav.appendChild(list);
 
-      <a href="https://www.instagram.com/jacksonwebbie?stkn=cDRqbDBwdnl0NHpw&utm_source=qr" target="_blank">
-        <img src="jw-logo.png" alt="JW Logo" id="logo-img">
-      </a>
+  const header = document.querySelector("header");
+  header.insertAdjacentElement("afterend", nav);
+}
 
-    </div>
-  </header>
-
-  <!-- NAVIGATION -->
-  <script src="navigation.js"></script>
-
-  <!-- BUTTON ROW -->
-  <div id="button-row">
-    <button class="mini-btn" id="about-btn">About</button>
-    <button class="mini-btn" id="schedule-btn">Schedule</button>
-    <button class="mini-btn" id="explore-btn">Explore</button>
-    <button class="mini-btn" id="classes-btn">Classes</button>
-    <button class="mini-btn" id="shop-btn">Shop</button>
-  </div>
-
-  <!-- HERO -->
-  <section id="hero">
-    <div class="overlay">
-      <h2>INSPIRED BY EXCELLENCE</h2>
-      <p>Driven by creativity, precision, and purpose.</p>
-    </div>
-  </section>
-
-  <!-- CONTENT -->
-  <main id="content-area">
-    <div id="main-content">
-      <h2>Welcome</h2>
-      <p>
-        Thanks for stopping to my official website! More information about me is located in the 
-        <a href="#" class="inline-link" onclick="document.getElementById('about-btn').click()">about</a> section.
-        To view the dates I am performing in 2026, view 
-        <a href="#" class="inline-link" onclick="document.getElementById('schedule-btn').click()">schedule</a>.
-        For interest in classes or 1 on 1 lessons click 
-        <a href="#" class="inline-link" onclick="document.getElementById('classes-btn').click()">classes</a>.
-        For FAQ's and more miscellaneous information search my website by clicking 
-        <a href="#" class="inline-link" onclick="document.getElementById('explore-btn').click()">explore</a>.
-      </p>
-    </div>
-
-    <aside id="sidebar">
-      <h3>Latest Updates</h3>
-      <p>Website redesign complete.</p>
-      <p>Logo linked to Instagram.</p>
-      <p>New sky‑blue theme applied.</p>
-    </aside>
-  </main>
-
-  <!-- FOOTER -->
-  <footer>© 2026 Jackson Webb</footer>
-
-</div>
-
-<script>
-document.addEventListener("mousemove", function(e) {
-  const glow = document.getElementById("cursor-glow");
-  glow.style.left = e.pageX + "px";
-  glow.style.top = e.pageY + "px";
-});
-</script>
-
-</body>
-</html>
+document.addEventListener("DOMContentLoaded", buildNavigation);
