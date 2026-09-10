@@ -1,14 +1,9 @@
 // Navigation items for the simplified website
 const navItems = [
-  { name: "Home", link: "index.html" },
-  { name: "About", link: "about.html" },
-  { name: "Schedule", link: "schedule.html" },
-  { name: "Explore", link: "explore.html" },
-  { name: "Classes", link: "classes.html" },
-  { name: "Shop", link: "shop.html" }
+  { name: "Home", link: "index.html" }
 ];
 
-// Build navigation bar
+// Build navigation bar (HOME ONLY)
 function buildNavigation() {
   const nav = document.createElement("nav");
   const list = document.createElement("ul");
