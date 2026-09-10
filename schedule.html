@@ -7,10 +7,12 @@
 </head>
 
 <body>
+<div id="cursor-glow"></div>
+
 <div id="page-wrapper">
 
   <header>
-    <a href="https://www.instagram.com/jacksonwebbie?stkn=cDRqbDBwdnl0NHpw&utm_source=qr" target="_blank">
+    <a href="https://www.instagram.com/jacksonwebbie" target="_blank">
       <img src="jw-logo.png" id="logo-img">
     </a>
     <div id="site-info">
@@ -19,17 +21,34 @@
     </div>
   </header>
 
+  <!-- HOME NAV BAR -->
+  <script src="navigation.js"></script>
+
+  <!-- GREY BUTTONS -->
+  <div id="button-row">
+    <a href="about.html"><button class="mini-btn">About</button></a>
+    <a href="schedule.html"><button class="mini-btn">Schedule</button></a>
+    <a href="explore.html"><button class="mini-btn">Explore</button></a>
+    <a href="classes.html"><button class="mini-btn">Classes</button></a>
+    <a href="shop.html"><button class="mini-btn">Shop</button></a>
+  </div>
+
   <div id="content-area">
     <div id="main-content">
       <h2>Schedule</h2>
-      <p>
-        09/17/26, Outlaws @ Ames
-        10/08/26, Outlaws @ Ames
-        11/05/26, Outlaws @ Ames
-        11/20/26, Outlaws @ Ames
-        12/03/26, Outlaws @ Ames 
-        
-      </p>
+
+      <table class="schedule-table">
+        <tr>
+          <th>Dates</th>
+          <th>Location</th>
+        </tr>
+        <tr><td>09/17/26</td><td>Outlaws @ Ames</td></tr>
+        <tr><td>10/08/26</td><td>Outlaws @ Ames</td></tr>
+        <tr><td>11/05/26</td><td>Outlaws @ Ames</td></tr>
+        <tr><td>11/20/26</td><td>Outlaws @ Ames</td></tr>
+        <tr><td>12/03/26</td><td>Outlaws @ Ames</td></tr>
+      </table>
+
     </div>
 
     <div id="sidebar">
@@ -44,6 +63,13 @@
 
 </div>
 
-<script src="navigation.js"></script>
+<script>
+document.addEventListener("mousemove", function(e) {
+  const glow = document.getElementById("cursor-glow");
+  glow.style.left = e.pageX + "px";
+  glow.style.top = e.pageY + "px";
+});
+</script>
+
 </body>
 </html>
