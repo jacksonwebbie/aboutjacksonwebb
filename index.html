@@ -1,33 +1,89 @@
-// Navigation items for the simplified website
-const navItems = [
-  { name: "Home", link: "index.html" },
-  { name: "About", link: "about.html" },
-  { name: "Schedule", link: "schedule.html" },
-  { name: "Explore", link: "explore.html" },
-  { name: "Classes", link: "classes.html" },
-  { name: "Shop", link: "shop.html" }
-];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Jackson Webb | Official Page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 
-// Build navigation bar
-function buildNavigation() {
-  const nav = document.createElement("nav");
-  const list = document.createElement("ul");
+<body>
+<div id="cursor-glow"></div>
 
-  navItems.forEach(item => {
-    const li = document.createElement("li");
-    const a = document.createElement("a");
+<div id="page-wrapper">
 
-    a.textContent = item.name;
-    a.href = item.link;
+  <!-- HEADER -->
+  <header>
+    <div id="header-content">
 
-    li.appendChild(a);
-    list.appendChild(li);
-  });
+      <h1 class="main-title">J A C K S O N&nbsp;&nbsp;W E B B</h1>
 
-  nav.appendChild(list);
+      <p class="subtitle">
+        W E L C O M E   T O   M Y   O F F I C I A L   P A G E
+      </p>
 
-  const header = document.querySelector("header");
-  header.insertAdjacentElement("afterend", nav);
-}
+      <a href="https://www.instagram.com/jacksonwebbie" target="_blank">
+        <img src="jw-logo.png" alt="JW Logo" id="logo-img">
+      </a>
 
-document.addEventListener("DOMContentLoaded", buildNavigation);
+    </div>
+  </header>
+
+  <!-- BLUE NAVIGATION BAR (HOME ONLY) -->
+  <script src="navigation.js"></script>
+
+  <!-- GREY BUTTON ROW (ALL OTHER PAGES) -->
+  <div id="button-row">
+    <a href="about.html"><button class="mini-btn">About</button></a>
+    <a href="schedule.html"><button class="mini-btn">Schedule</button></a>
+    <a href="explore.html"><button class="mini-btn">Explore</button></a>
+    <a href="classes.html"><button class="mini-btn">Classes</button></a>
+    <a href="shop.html"><button class="mini-btn">Shop</button></a>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="overlay">
+      <h2>INSPIRED BY EXCELLENCE</h2>
+      <p>Driven by creativity, precision, and purpose.</p>
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <main id="content-area">
+    <div id="main-content">
+      <h2>Welcome</h2>
+      <p>
+        Thanks for stopping to my official website! More information about me is located in the 
+        <a href="about.html" class="inline-link">about</a> section.
+        To view the dates I am performing in 2026, view 
+        <a href="schedule.html" class="inline-link">schedule</a>.
+        For interest in classes or 1 on 1 lessons click 
+        <a href="classes.html" class="inline-link">classes</a>.
+        For FAQ's and more miscellaneous information search my website by clicking 
+        <a href="explore.html" class="inline-link">explore</a>.
+      </p>
+    </div>
+
+    <aside id="sidebar">
+      <h3>Latest Updates</h3>
+      <p>Website redesign complete.</p>
+      <p>Logo linked to Instagram.</p>
+      <p>New sky‑blue theme applied.</p>
+    </aside>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>© 2026 Jackson Webb</footer>
+
+</div>
+
+<script>
+document.addEventListener("mousemove", function(e) {
+  const glow = document.getElementById("cursor-glow");
+  glow.style.left = e.pageX + "px";
+  glow.style.top = e.pageY + "px";
+});
+</script>
+
+</body>
+</html>
