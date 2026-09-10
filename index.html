@@ -31,11 +31,11 @@
 
   <!-- BUTTON ROW -->
   <div id="button-row">
-    <button class="mini-btn">About</button>
-    <button class="mini-btn">Schedule</button>
-    <button class="mini-btn">Explore</button>
-    <button class="mini-btn">Classes</button>
-    <button class="mini-btn">Shop</button>
+    <button class="mini-btn" id="about-btn">About</button>
+    <button class="mini-btn" id="schedule-btn">Schedule</button>
+    <button class="mini-btn" id="explore-btn">Explore</button>
+    <button class="mini-btn" id="classes-btn">Classes</button>
+    <button class="mini-btn" id="shop-btn">Shop</button>
   </div>
 
   <!-- HERO -->
@@ -51,10 +51,14 @@
     <div id="main-content">
       <h2>Welcome</h2>
       <p>
-        Thanks for stopping to my official website! More information about me is located in the about section.
-        To view the dates I am performing in 2026, view schedule.
-        For interest in classes or 1 on 1 lessons click classes.
-        For FAQ's and more miscellaneous information search my website by clicking explore.
+        Thanks for stopping to my official website! More information about me is located in the 
+        <a href="#" class="inline-link" onclick="document.getElementById('about-btn').click()">about</a> section.
+        To view the dates I am performing in 2026, view 
+        <a href="#" class="inline-link" onclick="document.getElementById('schedule-btn').click()">schedule</a>.
+        For interest in classes or 1 on 1 lessons click 
+        <a href="#" class="inline-link" onclick="document.getElementById('classes-btn').click()">classes</a>.
+        For FAQ's and more miscellaneous information search my website by clicking 
+        <a href="#" class="inline-link" onclick="document.getElementById('explore-btn').click()">explore</a>.
       </p>
     </div>
 
