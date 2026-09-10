@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 
-/* SMALLER, DARKER CURSOR GLOW */
+/* CURSOR GLOW */
 #cursor-glow {
   position: fixed;
   width: 140px;
@@ -24,63 +24,29 @@
   100% { transform: translate(-50%, -50%) scale(1); }
 }
 
-/* BODY — INVERTED */
+/* BODY */
 body {
   background-color: #ffffff;
   color: #000000;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* PAGE WRAPPER */
-#page-wrapper {
-  width: 90%;
-  margin: 0 auto;
-  min-height: 100vh;
-}
-
 /* HEADER */
 header {
   text-align: center;
-  padding: 60px 20px 20px;
-  background: linear-gradient(180deg, #f2f2f2 0%, #ffffff 100%);
+  padding: 40px 20px;
+  background: #ffffff;
   border-bottom: 3px solid #4db8ff;
 }
 
-/* MAIN TITLE */
-.main-title {
-  font-size: clamp(2.5rem, 7vw, 5rem);
-  font-weight: 900;
-  letter-spacing: clamp(0.4rem, 1.5vw, 1rem);
-  color: #000000;
-  text-transform: uppercase;
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-/* SUBTITLE */
-.subtitle {
-  font-size: clamp(0.7rem, 1.2vw, 1rem);
-  color: #4db8ff;
-  text-align: center;
-  letter-spacing: clamp(0.6rem, 1.5vw, 1.1rem);
-  text-transform: uppercase;
-  margin-bottom: 30px;
-}
-
-/* LOGO */
 #logo-img {
   width: 130px;
   height: 130px;
   border-radius: 50%;
-  box-shadow: 0 0 30px 10px rgba(77, 184, 255, 0.7);
-  transition: transform 0.3s ease;
+  box-shadow: 0 0 30px 10px rgba(77,184,255,0.7);
 }
 
-#logo-img:hover {
-  transform: scale(1.05);
-}
-
-/* BLUE NAV BAR — HOME ONLY */
+/* HOME NAV BAR */
 nav {
   background: #4db8ff;
   padding: 15px 0;
@@ -96,9 +62,9 @@ nav ul {
 }
 
 nav a {
-  color: #000000;
-  text-decoration: none;
+  color: #000;
   font-weight: 600;
+  text-decoration: none;
   font-size: 1.1rem;
 }
 
@@ -114,14 +80,13 @@ nav a {
   width: 18%;
   max-width: 200px;
   background-color: #b0c4de;
-  color: #000000;
+  color: #000;
   padding: 12px 0;
   border: none;
   border-radius: 6px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: 0.3s ease;
 }
 
 .mini-btn:hover {
@@ -144,12 +109,8 @@ nav a {
 }
 
 #hero .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+  background: rgba(255,255,255,0.6);
   height: 100%;
-  background: rgba(255, 255, 255, 0.6);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -157,21 +118,20 @@ nav a {
 }
 
 #hero h2 {
-  font-size: 2.5rem;
   color: #4db8ff;
+  font-size: 2.5rem;
 }
 
 #hero p {
+  color: #333;
   font-size: 1.2rem;
-  color: #333333;
 }
 
 /* CONTENT AREA */
 #content-area {
   display: flex;
-  flex-wrap: wrap;
-  margin-top: 40px;
   gap: 30px;
+  margin-top: 40px;
 }
 
 #main-content {
@@ -179,16 +139,27 @@ nav a {
   background: #f7f7f7;
   padding: 30px;
   border-radius: 8px;
-  box-shadow: 0 0 15px rgba(77, 184, 255, 0.3);
 }
 
-#main-content h2 {
-  color: #4db8ff;
+/* SCHEDULE TABLE */
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
 }
 
-#main-content p {
-  font-size: 1.05rem;
-  line-height: 1.6;
+.schedule-table th {
+  background: #4db8ff;
+  color: #000;
+  padding: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.schedule-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  font-size: 1rem;
 }
 
 /* SIDEBAR */
@@ -197,7 +168,6 @@ nav a {
   background: #e8e8e8;
   padding: 30px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(77, 184, 255, 0.2);
 }
 
 #sidebar h3 {
@@ -210,21 +180,5 @@ footer {
   padding: 20px;
   text-align: center;
   background: #f2f2f2;
-  color: #000000;
   border-top: 3px solid #4db8ff;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  #content-area {
-    flex-direction: column;
-  }
-
-  #button-row {
-    flex-wrap: wrap;
-  }
-
-  .mini-btn {
-    width: 45%;
-  }
 }
