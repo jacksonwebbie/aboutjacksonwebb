@@ -5,22 +5,22 @@
   box-sizing: border-box;
 }
 
-/* CURSOR GLOW FOLLOW EFFECT */
+/* SMALLER, DARKER CURSOR GLOW */
 #cursor-glow {
   position: fixed;
-  width: 250px;
-  height: 250px;
-  background: radial-gradient(circle, rgba(77,184,255,0.7) 0%, rgba(77,184,255,0.0) 70%);
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, rgba(77,184,255,0.45) 0%, rgba(77,184,255,0.0) 70%);
   pointer-events: none;
   border-radius: 50%;
   transform: translate(-50%, -50%);
-  animation: pulse 2s infinite ease-in-out;
+  animation: pulse 2.2s infinite ease-in-out;
   z-index: 9999;
 }
 
 @keyframes pulse {
   0% { transform: translate(-50%, -50%) scale(1); }
-  50% { transform: translate(-50%, -50%) scale(1.15); }
+  50% { transform: translate(-50%, -50%) scale(1.08); }
   100% { transform: translate(-50%, -50%) scale(1); }
 }
 
