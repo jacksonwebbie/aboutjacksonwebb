@@ -16,6 +16,14 @@ const navItems = [
   { name: "Contact", link: "contact.html" }
 ];
 
+// Secondary navigation: quick links shown under the primary navigation
+const secondaryItems = [
+  { name: "Book Me", link: "contact.html" },
+  { name: "Lessons", link: "classes.html" },
+  { name: "Next Shows", link: "schedule.html" },
+  { name: "Privacy", link: "privacy.html" }
+];
+
 // Sticky right column content
 const latestUpdates = [
   "Website redesign complete.",
@@ -95,36 +103,55 @@ function buildSideNav() {
   nav.appendChild(buildLinkList());
 }
 
-// Left column: secondary navigation built from this page's headings
-function buildSecondaryNav() {
-  const nav = document.querySelector(".secondary-nav");
-  const headings = document.querySelectorAll(".content h2");
-  if (!nav) return;
-
-  if (headings.length < 2) {
-    nav.hidden = true;
-    return;
-  }
-
-  const heading = document.createElement("h2");
-  heading.className = "col-heading";
-  heading.textContent = "On this page";
-
+// Builds a simple <ul> from a list of { name, link }
+function buildSimpleList(items) {
   const list = document.createElement("ul");
-
-  headings.forEach(function (h, i) {
-    if (!h.id) h.id = "section-" + (i + 1);
-
+  items.forEach(function (item) {
     const li = document.createElement("li");
     const a = document.createElement("a");
-    a.href = "#" + h.id;
-    a.textContent = h.textContent;
+    a.textContent = item.name;
+    a.href = item.link;
+    if (item.link === currentPage) a.setAttribute("aria-current", "page");
     li.appendChild(a);
     list.appendChild(li);
   });
+  return list;
+}
+
+// Header: secondary navigation row
+function buildSecondaryTop() {
+  const nav = document.querySelector(".secondary-nav-top");
+  if (!nav) return;
+  nav.appendChild(buildSimpleList(secondaryItems));
+}
+
+// Left column: secondary navigation.
+// Uses this page's section headings when there are two or more,
+// otherwise the same quick links as the header.
+function buildSecondaryNav() {
+  const nav = document.querySelector(".secondary-nav");
+  if (!nav) return;
+
+  const heading = document.createElement("h2");
+  heading.className = "col-heading";
+
+  const headings = document.querySelectorAll(".content h2");
+  let items;
+
+  if (headings.length >= 2) {
+    heading.textContent = "On this page";
+    items = [];
+    headings.forEach(function (h, i) {
+      if (!h.id) h.id = "section-" + (i + 1);
+      items.push({ name: h.textContent, link: "#" + h.id });
+    });
+  } else {
+    heading.textContent = "Quick links";
+    items = secondaryItems;
+  }
 
   nav.appendChild(heading);
-  nav.appendChild(list);
+  nav.appendChild(buildSimpleList(items));
 }
 
 // Right column: news, next shows, lessons offer, site info, social
@@ -156,36 +183,47 @@ function buildStickyContent() {
   });
 
   col.innerHTML =
-    '<div class="box">' +
-      '<h2 class="col-heading">Latest Updates</h2>' +
-      "<ul class=\"news\">" + updatesHtml + "</ul>" +
-    "</div>" +
-    '<div class="box">' +
-      '<h2 class="col-heading">Next Shows</h2>' +
+    '<h2 class="col-heading">Sticky Content</h2>' +
+
+    '<section class="stick-block">' +
+      "<h3>News</h3>" +
+      '<ul class="news">' + updatesHtml + "</ul>" +
+    "</section>" +
+
+    '<section class="stick-block">' +
+      "<h3>Next Shows</h3>" +
       showsHtml +
       '<p><a class="inline-link" href="schedule.html">Full schedule</a></p>' +
-    "</div>" +
-    '<div class="box offer">' +
-      '<h2 class="col-heading">Lessons</h2>' +
+    "</section>" +
+
+    '<section class="stick-block advert">' +
+      "<h3>Book Jackson</h3>" +
+      "<p>Available for private events. Send a request through the contact form.</p>" +
+      '<a class="btn" href="contact.html">Book now</a>' +
+    "</section>" +
+
+    '<section class="stick-block offer">' +
+      "<h3>Offer: Lessons</h3>" +
       "<p>Classes and 1 on 1 lessons available.</p>" +
       '<a class="btn" href="classes.html">Learn more</a>' +
-    "</div>" +
-    '<div class="box">' +
-      '<h2 class="col-heading">Site Info</h2>' +
-      "<p>Based in Iowa. Questions or bookings? Use the " +
-      '<a class="inline-link" href="contact.html">contact form</a>.</p>' +
-    "</div>" +
-    '<div class="box">' +
-      '<h2 class="col-heading">Follow</h2>' +
+    "</section>" +
+
+    '<section class="stick-block">' +
+      "<h3>Site Info</h3>" +
+      "<p>Based in Iowa. Updated " + new Date().getFullYear() + ".</p>" +
+    "</section>" +
+
+    '<section class="stick-block">' +
+      "<h3>Social</h3>" +
       '<a class="social" href="' + instagramUrl + '" target="_blank" rel="noopener" aria-label="Instagram">' +
-        '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">' +
+        '<svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true">' +
           '<rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/>' +
           '<circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/>' +
           '<circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/>' +
         "</svg>" +
         "<span>@jacksonwebbie</span>" +
       "</a>" +
-    "</div>";
+    "</section>";
 }
 
 // Footer: copyright, current year, links, contact, privacy, webmaster email
@@ -225,6 +263,7 @@ function setupCursorGlow() {
 
 document.addEventListener("DOMContentLoaded", function () {
   buildPrimaryNav();
+  buildSecondaryTop();
   buildSideNav();
   buildSecondaryNav();
   buildStickyContent();

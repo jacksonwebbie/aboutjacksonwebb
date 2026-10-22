@@ -12,17 +12,33 @@
 
 <div class="page">
 
-  <!-- HEADER: logo, info graphic, primary navigation -->
+  <!-- HEADER: logo | informational graphic, primary navigation, secondary navigation -->
   <header class="site-header">
-    <a class="logo" href="https://www.instagram.com/jacksonwebbie" target="_blank" rel="noopener">
-      <img src="./jw-logo.png" alt="Jackson Webb logo, links to Instagram">
-    </a>
-    <div class="header-right">
-      <div class="info-graphic">
+    <div class="logo-cell">
+      <a class="logo" href="https://www.instagram.com/jacksonwebbie" target="_blank" rel="noopener">
+        <img src="./jw-logo.png" alt="Jackson Webb logo, links to Instagram">
+      </a>
+    </div>
+    <div class="header-rows">
+      <div class="info-graphic" aria-label="What this site is about">
         <p class="brand">Jackson Webb</p>
-        <p class="tagline">Inspired by excellence · Driven by creativity, precision, and purpose</p>
+        <ul class="info-icons">
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+            <span>Live shows</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg>
+            <span>Classes &amp; lessons</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>
+            <span>Inspired by excellence</span>
+          </li>
+        </ul>
       </div>
-      <nav class="primary-nav" aria-label="Primary"></nav>
+      <nav class="primary-nav" aria-label="Primary navigation"></nav>
+      <nav class="secondary-nav-top" aria-label="Secondary navigation"></nav>
     </div>
   </header>
 
@@ -30,8 +46,8 @@
 
     <!-- LEFT COLUMN: primary and secondary navigation -->
     <aside class="left-col">
-      <nav class="side-nav" aria-label="Site pages"></nav>
-      <nav class="secondary-nav" aria-label="On this page"></nav>
+      <nav class="side-nav" aria-label="Primary navigation (sidebar)"></nav>
+      <nav class="secondary-nav" aria-label="Secondary navigation (sidebar)"></nav>
     </aside>
 
     <!-- MAIN CONTENT: hero image at top, then text and images -->
@@ -53,7 +69,7 @@
     </main>
 
     <!-- RIGHT COLUMN: sticky content (news, offers, site info, social) -->
-    <aside class="right-col" aria-label="News and info"></aside>
+    <aside class="right-col" aria-label="News, offers and site info"></aside>
 
   </div>
 

@@ -1,9 +1,22 @@
 /* ============================================================
-   LAYOUT (matches the assignment diagram)
-   Body/background area → centered page
-   Header: logo | info graphic + primary navigation
-   Three columns: left navigation | hero + main content | sticky content
-   Footer: copyright, year, links, contact, privacy, webmaster
+   LAYOUT (follows the assignment wireframe)
+
+   body / background area
+   ┌──────────┬───────────────────────────────────────┐
+   │          │ informational graphic                 │
+   │   Logo   ├───────────────────────────────────────┤
+   │          │ primary navigation                    │
+   │          ├───────────────────────────────────────┤
+   │          │ secondary navigation                  │
+   ├──────────┼──────────────────────────┬────────────┤
+   │ primary  │ ┌──────────────────────┐ │ sticky     │
+   │ nav      │ │ hero image           │ │ content    │
+   │          │ └──────────────────────┘ │            │
+   │ secondary│ main content area        │            │
+   │ nav      │                          │            │
+   ├──────────┴──────────────────────────┴────────────┤
+   │ footer                                            │
+   └───────────────────────────────────────────────────┘
    ============================================================ */
 
 /* GLOBAL RESET */
@@ -14,8 +27,8 @@
 }
 
 /* COLORS
-   Sky blue is used for borders and backgrounds. Text and links use a darker
-   blue so they stay readable on white (sky blue text on white is too faint). */
+   Sky blue is the accent. Text and links use a darker blue so they stay
+   readable on white (sky blue text on white is too faint). */
 :root {
   --sky: #4db8ff;
   --sky-dark: #00609e;
@@ -24,7 +37,9 @@
   --text: #111111;
   --muted: #444444;
   --panel: #f5f7fa;
-  --border: #d5dde6;
+  --line: #2b3a48;          /* the wireframe's dividing lines */
+  --left-width: 210px;      /* left column and logo cell share this width */
+  --right-width: 230px;
 }
 
 /* BODY / BACKGROUND AREA */
@@ -34,7 +49,7 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 1.05rem;
   line-height: 1.6;
-  padding: 24px 16px;
+  padding: 32px 24px 64px;
 }
 
 img {
@@ -63,33 +78,35 @@ img {
   100% { transform: translate(-50%, -50%) scale(1); }
 }
 
-/* PAGE CONTAINER */
+/* PAGE: the outlined box in the middle of the background */
 .page {
-  max-width: 1200px;
+  max-width: 1150px;
   margin: 0 auto;
   background: #ffffff;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  box-shadow: 0 6px 30px rgba(0, 40, 80, 0.12);
-  overflow: hidden;
+  border: 2px solid var(--line);
 }
 
-/* HEADER */
+/* ---------- HEADER ---------- */
 .site-header {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: var(--left-width) 1fr;
+  border-bottom: 2px solid var(--line);
+}
+
+.logo-cell {
+  border-right: 2px solid var(--line);
+  display: flex;
   align-items: center;
-  gap: 24px;
-  padding: 20px 24px;
-  border-bottom: 3px solid var(--sky);
+  justify-content: center;
+  padding: 16px;
 }
 
 .logo img {
   display: block;
-  width: 110px;
-  height: 110px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
-  box-shadow: 0 0 24px 6px rgba(77,184,255,0.6);
+  box-shadow: 0 0 22px 6px rgba(77,184,255,0.6);
   transition: transform 0.2s ease;
 }
 
@@ -97,70 +114,109 @@ img {
   transform: scale(1.05);
 }
 
-.header-right {
+.header-rows {
   display: flex;
   flex-direction: column;
-  gap: 12px;
   min-width: 0;
 }
 
-/* Informational graphic: what the site is about */
+/* Row 1: informational graphic (images describing the site) */
 .info-graphic {
   background: linear-gradient(135deg, var(--sky) 0%, var(--steel) 100%);
-  border-radius: 8px;
   padding: 14px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  border-bottom: 1px solid var(--line);
 }
 
 .brand {
-  font-size: 1.9rem;
+  font-size: 1.8rem;
   font-weight: 700;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   line-height: 1.2;
 }
 
-.tagline {
-  font-size: 0.95rem;
-  color: #0b2a40;
-  font-weight: 600;
-}
-
-/* PRIMARY NAVIGATION (header) */
-.primary-nav ul {
+.info-icons {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 18px;
+}
+
+.info-icons li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #0b2a40;
+  text-align: center;
+}
+
+.info-icons svg {
+  width: 34px;
+  height: 34px;
+  fill: none;
+  stroke: #0b2a40;
+  stroke-width: 1.8;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  background: rgba(255,255,255,0.6);
+  border-radius: 50%;
+  padding: 5px;
+}
+
+/* Rows 2 and 3: primary and secondary navigation, centered */
+.primary-nav,
+.secondary-nav-top {
+  border-bottom: 1px solid var(--line);
+}
+
+.secondary-nav-top {
+  border-bottom: none;
+  background: var(--panel);
+}
+
+.primary-nav ul,
+.secondary-nav-top ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .primary-nav a,
-.side-nav a,
-.secondary-nav a {
+.secondary-nav-top a {
   display: block;
   color: #000;
-  font-weight: 600;
   text-decoration: none;
-  padding: 7px 14px;
-  border-radius: 6px;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .primary-nav a {
-  background: var(--panel);
-  border: 1px solid var(--border);
+  font-weight: 700;
+  padding: 9px 16px;
+}
+
+.secondary-nav-top a {
+  font-size: 0.92rem;
+  padding: 5px 14px;
+  color: var(--muted);
 }
 
 .primary-nav a:hover,
-.side-nav a:hover,
-.secondary-nav a:hover {
+.secondary-nav-top a:hover {
   background-color: var(--sky);
   color: #000;
 }
 
-.primary-nav a.active,
-.side-nav a.active {
+.primary-nav a.active {
   background-color: var(--sky-dark);
-  border-color: var(--sky-dark);
   color: #ffffff;
 }
 
@@ -170,7 +226,6 @@ img {
   background: var(--sky);
   color: #000;
   border: none;
-  border-radius: 6px;
   padding: 10px;
   font-size: 1rem;
   font-weight: 700;
@@ -187,22 +242,19 @@ button:focus-visible {
   outline-offset: 2px;
 }
 
-/* THREE-COLUMN LAYOUT */
+/* ---------- THREE COLUMNS ---------- */
 .layout {
   display: grid;
-  grid-template-columns: 200px minmax(0, 1fr) 250px;
-  align-items: start;
+  grid-template-columns: var(--left-width) minmax(0, 1fr) var(--right-width);
 }
 
-/* LEFT COLUMN */
+/* LEFT COLUMN: primary navigation, then secondary navigation */
 .left-col {
-  padding: 24px 16px;
-  border-right: 1px solid var(--border);
+  border-right: 2px solid var(--line);
+  padding: 20px 14px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  align-self: stretch;
-  background: var(--panel);
+  gap: 28px;
 }
 
 .side-nav ul,
@@ -210,32 +262,56 @@ button:focus-visible {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
+}
+
+.side-nav a,
+.secondary-nav a {
+  display: block;
+  color: #000;
+  text-decoration: none;
+  padding: 6px 10px;
+  transition: background-color 0.2s ease;
+}
+
+.side-nav a {
+  font-weight: 700;
 }
 
 .secondary-nav a {
-  font-weight: 400;
   font-size: 0.95rem;
 }
 
+.side-nav a:hover,
+.secondary-nav a:hover {
+  background-color: var(--sky);
+}
+
+.side-nav a.active {
+  background-color: var(--sky-dark);
+  color: #ffffff;
+}
+
 .col-heading {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--sky-dark);
+  padding-bottom: 6px;
   margin-bottom: 8px;
+  border-bottom: 1px solid var(--line);
 }
 
-/* MAIN COLUMN */
+/* MIDDLE COLUMN: hero image box at top, then main content */
 .main-col {
-  padding: 24px;
+  padding: 20px 24px 32px;
   min-width: 0;
 }
 
-/* Hero image at top. Add your photo as images/hero.jpg to replace the gradient. */
+/* Hero: add your photo as images/hero.jpg and it appears here automatically */
 .hero {
-  min-height: 260px;
-  border-radius: 8px;
+  border: 2px solid var(--line);
+  min-height: 220px;
   background:
     linear-gradient(rgba(255,255,255,0.55), rgba(255,255,255,0.55)),
     url('./images/hero.jpg') center / cover no-repeat,
@@ -245,23 +321,22 @@ button:focus-visible {
   justify-content: center;
   text-align: center;
   padding: 24px;
-  margin-bottom: 28px;
+  margin: 0 0 28px;
 }
 
 .hero h1 {
   color: var(--sky-dark);
-  font-size: 2.4rem;
+  font-size: 2.3rem;
   line-height: 1.2;
   text-transform: uppercase;
 }
 
 .hero p {
   color: #1a1a1a;
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   margin-top: 8px;
 }
 
-/* Main text content */
 .content h2 {
   font-size: 1.7rem;
   line-height: 1.25;
@@ -288,7 +363,6 @@ button:focus-visible {
 }
 
 .content img {
-  border-radius: 8px;
   margin: 10px 0 16px;
 }
 
@@ -313,24 +387,21 @@ button:focus-visible {
 
 .schedule-table {
   width: 100%;
-  border-collapse: separate;
-  border-spacing: 0 10px;
+  border-collapse: collapse;
 }
 
 .schedule-table th {
   background: var(--sky);
   color: #000;
-  padding: 12px;
-  font-size: 1.1rem;
+  padding: 10px 12px;
   font-weight: 700;
   text-align: left;
-  border: 2px solid var(--sky);
+  border: 1px solid var(--line);
 }
 
 .schedule-table td {
-  padding: 12px;
-  background: #ffffff;
-  border: 2px solid var(--sky);
+  padding: 10px 12px;
+  border: 1px solid var(--line);
 }
 
 .schedule-table tr:hover td {
@@ -346,40 +417,48 @@ button:focus-visible {
 .form-wrap iframe {
   width: 100%;
   height: 900px;
-  border: 2px solid var(--sky);
-  border-radius: 8px;
+  border: 2px solid var(--line);
   background: #ffffff;
 }
 
 /* RIGHT COLUMN: sticky content */
 .right-col {
+  border-left: 2px solid var(--line);
+  padding: 20px 14px;
   position: sticky;
-  top: 16px;
-  padding: 24px 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.box {
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 14px;
+  top: 0;
+  align-self: start;
   font-size: 0.95rem;
 }
 
-.box p + p {
-  margin-top: 6px;
+.stick-block {
+  padding: 10px 0 14px;
+  border-bottom: 1px solid var(--steel);
+}
+
+.stick-block:last-child {
+  border-bottom: none;
+}
+
+.stick-block h3 {
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+.stick-block p + p {
+  margin-top: 4px;
 }
 
 .news {
   padding-left: 1.1em;
 }
 
+.advert,
 .offer {
   background: #e6f4ff;
-  border-color: var(--sky);
+  border: 1px solid var(--sky);
+  padding: 10px 12px 14px;
+  margin: 10px 0;
 }
 
 .btn {
@@ -389,8 +468,7 @@ button:focus-visible {
   color: #ffffff;
   font-weight: 700;
   text-decoration: none;
-  padding: 8px 14px;
-  border-radius: 6px;
+  padding: 7px 14px;
   transition: background-color 0.2s ease;
 }
 
@@ -411,16 +489,16 @@ button:focus-visible {
   color: #000;
 }
 
-/* FOOTER */
+/* ---------- FOOTER ---------- */
 .site-footer {
-  border-top: 3px solid var(--sky);
+  border-top: 2px solid var(--line);
   background: var(--panel);
-  padding: 20px 24px;
+  padding: 16px 24px;
   text-align: center;
   font-size: 0.95rem;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 4px;
 }
 
 .footer-links {
@@ -428,7 +506,7 @@ button:focus-visible {
   flex-wrap: wrap;
   justify-content: center;
   gap: 4px 16px;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 .site-footer a {
@@ -440,37 +518,40 @@ button:focus-visible {
   color: #000;
 }
 
-/* TABLETS: drop the left column (header navigation covers it) */
-@media (max-width: 1000px) {
-  .layout {
-    grid-template-columns: minmax(0, 1fr) 240px;
+/* ---------- TABLETS: narrower side columns ---------- */
+@media (max-width: 980px) {
+  :root {
+    --left-width: 170px;
+    --right-width: 200px;
   }
 
-  .left-col {
-    display: none;
+  body {
+    padding: 20px 12px 40px;
+  }
+
+  .brand {
+    font-size: 1.4rem;
   }
 }
 
-/* PHONES: one column, menu button */
-@media (max-width: 720px) {
+/* ---------- PHONES: stack the columns in the same order ---------- */
+@media (max-width: 760px) {
   body {
     padding: 0;
   }
 
   .page {
-    border: none;
-    border-radius: 0;
+    border-left: none;
+    border-right: none;
   }
 
   .site-header {
     grid-template-columns: 1fr;
-    justify-items: center;
-    text-align: center;
-    padding: 20px 16px;
   }
 
-  .header-right {
-    width: 100%;
+  .logo-cell {
+    border-right: none;
+    border-bottom: 1px solid var(--line);
   }
 
   .logo img {
@@ -478,8 +559,17 @@ button:focus-visible {
     height: 90px;
   }
 
+  .info-graphic {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .info-icons {
+    justify-content: center;
+  }
+
   .brand {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     letter-spacing: 0.15em;
   }
 
@@ -490,15 +580,24 @@ button:focus-visible {
   .primary-nav ul {
     display: none;
     flex-direction: column;
-    margin-top: 8px;
   }
 
   .primary-nav ul.open {
     display: flex;
   }
 
+  .primary-nav a {
+    text-align: center;
+    border-top: 1px solid var(--steel);
+  }
+
   .layout {
     grid-template-columns: 1fr;
+  }
+
+  /* The header already holds both navigation rows on phones */
+  .left-col {
+    display: none;
   }
 
   .main-col {
@@ -506,7 +605,7 @@ button:focus-visible {
   }
 
   .hero {
-    min-height: 180px;
+    min-height: 160px;
   }
 
   .hero h1 {
@@ -515,7 +614,9 @@ button:focus-visible {
 
   .right-col {
     position: static;
-    padding: 0 16px 16px;
+    border-left: none;
+    border-top: 2px solid var(--line);
+    padding: 16px;
   }
 
   .form-wrap iframe {
