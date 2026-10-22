@@ -43,7 +43,7 @@ const shows = [
 const instagramUrl = "https://www.instagram.com/jacksonwebbie";
 
 // Webmaster email shown in the footer. Replace with your email.
-const webmasterEmail = "YOUR-EMAIL-HERE";
+const webmasterEmail = "jwebb625@gmail.com";
 
 const currentPage = window.location.pathname.split("/").pop() || "index.html";
 
@@ -290,7 +290,7 @@ function buildFooter() {
     '<p>© ' + new Date().getFullYear() + " Jackson Webb. All rights reserved.</p>" +
     "<p>Contact: <a href=\"contact.html\">contact form</a> · " +
     '<a href="' + instagramUrl + '" target="_blank" rel="noopener">Instagram</a></p>' +
-    "<p>Webmaster: " + webmasterEmail + "</p>";
+    "<p>Webmaster: <a href=\"mailto:" + webmasterEmail + "\">" + webmasterEmail + "</a></p>";
 }
 
 // Glow that follows the mouse (skipped on touch screens)
