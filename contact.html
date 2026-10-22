@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact | Jackson Webb</title>
-  <link rel="stylesheet" href="./style.css?v=5">
+  <link rel="stylesheet" href="./style.css?v=6">
 </head>
 
 <body>
@@ -66,6 +66,46 @@
           <a href="mailto:jwebb625@gmail.com" class="inline-link">jwebb625@gmail.com</a>
         </p>
 
+        <h2>Basic Information</h2>
+        <p>Fill this out and press Send. Your email app will open with everything filled in, ready to send to me.</p>
+
+        <form id="info-form" class="info-form" novalidate>
+          <div class="form-row">
+            <label for="info-name">Full name</label>
+            <input id="info-name" name="name" type="text" autocomplete="name" required>
+          </div>
+
+          <div class="form-row">
+            <label for="info-email">Email</label>
+            <input id="info-email" name="email" type="email" autocomplete="email" required>
+          </div>
+
+          <div class="form-row">
+            <label for="info-phone">Phone <span class="optional">(optional)</span></label>
+            <input id="info-phone" name="phone" type="tel" autocomplete="tel">
+          </div>
+
+          <div class="form-row">
+            <label for="info-reason">Reason for contacting</label>
+            <select id="info-reason" name="reason" required>
+              <option value="">Choose one</option>
+              <option>Event booking</option>
+              <option>Classes or 1 on 1 lessons</option>
+              <option>General question</option>
+              <option>Website feedback</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label for="info-message">Message</label>
+            <textarea id="info-message" name="message" rows="5" required></textarea>
+          </div>
+
+          <p id="info-status" class="form-status" role="status"></p>
+
+          <button type="submit" class="btn">Send</button>
+        </form>
+
         <h2>Send Me a Message</h2>
         <p>Or fill out the form below and I'll get back to you.</p>
 
@@ -90,6 +130,6 @@
 
 </div>
 
-<script src="./navigation.js?v=5"></script>
+<script src="./navigation.js?v=6"></script>
 </body>
 </html>

@@ -293,6 +293,62 @@ function buildFooter() {
     "<p>Webmaster: <a href=\"mailto:" + webmasterEmail + "\">" + webmasterEmail + "</a></p>";
 }
 
+// Contact page: basic information form.
+// Checks the fields, then opens the visitor's email app with a
+// pre-filled message to the webmaster address.
+function setupInfoForm() {
+  const form = document.getElementById("info-form");
+  if (!form) return;
+
+  const status = document.getElementById("info-status");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const phone = form.phone.value.trim();
+    const reason = form.reason.value;
+    const message = form.message.value.trim();
+
+    // Clear old error highlights
+    form.querySelectorAll(".invalid").forEach(function (el) {
+      el.classList.remove("invalid");
+    });
+
+    const missing = [];
+    if (!name) missing.push(form.name);
+    if (!email || !form.email.checkValidity()) missing.push(form.email);
+    if (!reason) missing.push(form.reason);
+    if (!message) missing.push(form.message);
+
+    if (missing.length > 0) {
+      missing.forEach(function (el) { el.classList.add("invalid"); });
+      missing[0].focus();
+      status.className = "form-status error";
+      status.textContent = "Please fill in the highlighted fields. Check that your email is valid.";
+      return;
+    }
+
+    const subject = "Website inquiry: " + reason;
+    const body =
+      "Name: " + name + "\n" +
+      "Email: " + email + "\n" +
+      "Phone: " + (phone || "Not provided") + "\n" +
+      "Reason: " + reason + "\n\n" +
+      message;
+
+    window.location.href =
+      "mailto:" + webmasterEmail +
+      "?subject=" + encodeURIComponent(subject) +
+      "&body=" + encodeURIComponent(body);
+
+    status.className = "form-status success";
+    status.textContent = "Your email app should open now. Press send there to deliver your message. " +
+      "If nothing opened, email me directly at " + webmasterEmail + ".";
+  });
+}
+
 // Glow that follows the mouse (skipped on touch screens)
 function setupCursorGlow() {
   const glow = document.getElementById("cursor-glow");
@@ -317,5 +373,6 @@ document.addEventListener("DOMContentLoaded", function () {
   buildSecondaryNav();
   buildStickyContent();
   buildFooter();
+  setupInfoForm();
   setupCursorGlow();
 });
