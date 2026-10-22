@@ -90,6 +90,54 @@ function buildPrimaryNav() {
   nav.appendChild(list);
 }
 
+// Pinned navigation bar: slides in at the top of the screen once the
+// header's primary navigation scrolls out of view.
+function buildPinnedNav() {
+  const original = document.querySelector(".primary-nav");
+  if (!original || !("IntersectionObserver" in window)) return;
+
+  const bar = document.createElement("div");
+  bar.className = "pinned-bar";
+
+  const nav = document.createElement("nav");
+  nav.className = "pinned-inner";
+  nav.setAttribute("aria-label", "Primary navigation (pinned)");
+
+  const home = document.createElement("a");
+  home.className = "pinned-brand";
+  home.href = "index.html";
+  home.textContent = "Jackson Webb";
+
+  const toggle = document.createElement("button");
+  toggle.className = "pinned-toggle";
+  toggle.textContent = "Menu";
+  toggle.setAttribute("aria-expanded", "false");
+
+  const list = buildLinkList();
+
+  toggle.addEventListener("click", function () {
+    const isOpen = list.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  nav.appendChild(home);
+  nav.appendChild(toggle);
+  nav.appendChild(list);
+  bar.appendChild(nav);
+  document.body.appendChild(bar);
+
+  const observer = new IntersectionObserver(function (entries) {
+    const show = !entries[0].isIntersecting;
+    bar.classList.toggle("show", show);
+    if (!show) {
+      list.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+    }
+  });
+
+  observer.observe(original);
+}
+
 // Left column: primary navigation (vertical)
 function buildSideNav() {
   const nav = document.querySelector(".side-nav");
@@ -264,6 +312,7 @@ function setupCursorGlow() {
 document.addEventListener("DOMContentLoaded", function () {
   buildPrimaryNav();
   buildSecondaryTop();
+  buildPinnedNav();
   buildSideNav();
   buildSecondaryNav();
   buildStickyContent();
