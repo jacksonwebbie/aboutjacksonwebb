@@ -2,82 +2,72 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jackson Webb | Official Page</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
 <div id="cursor-glow"></div>
 
-<div id="page-wrapper">
+<div class="page">
 
-  <header>
-    <div id="header-content">
-
-      <h1 class="main-title">J A C K S O N&nbsp;&nbsp;W E B B</h1>
-
-      <p class="subtitle">
-        W E L C O M E    T O    M Y    O F F I C I A L    P A G E
-      </p>
-
-      <a href="https://www.instagram.com/jacksonwebbie" target="_blank">
-        <img src="jw-logo.png" id="logo-img">
-      </a>
-
+  <!-- HEADER: logo, info graphic, primary navigation -->
+  <header class="site-header">
+    <a class="logo" href="https://www.instagram.com/jacksonwebbie" target="_blank" rel="noopener">
+      <img src="./jw-logo.png" alt="Jackson Webb logo, links to Instagram">
+    </a>
+    <div class="header-right">
+      <div class="info-graphic">
+        <p class="brand">Jackson Webb</p>
+        <p class="tagline">Inspired by excellence · Driven by creativity, precision, and purpose</p>
+      </div>
+      <nav class="primary-nav" aria-label="Primary"></nav>
     </div>
   </header>
 
-  <script src="navigation.js"></script>
+  <div class="layout">
 
-  <div id="button-row">
-    <a href="about.html"><button class="mini-btn">About</button></a>
-    <a href="schedule.html"><button class="mini-btn">Schedule</button></a>
-    <a href="explore.html"><button class="mini-btn">Explore</button></a>
-    <a href="classes.html"><button class="mini-btn">Classes</button></a>
-    <a href="shop.html"><button class="mini-btn">Shop</button></a>
+    <!-- LEFT COLUMN: primary and secondary navigation -->
+    <aside class="left-col">
+      <nav class="side-nav" aria-label="Site pages"></nav>
+      <nav class="secondary-nav" aria-label="On this page"></nav>
+    </aside>
+
+    <!-- MAIN CONTENT: hero image at top, then text and images -->
+    <main class="main-col">
+      <section class="hero">
+        <div class="hero-text">
+          <h1>Inspired by Excellence</h1>
+          <p>Driven by creativity, precision, and purpose.</p>
+        </div>
+      </section>
+
+      <div class="content">
+        <h2>Welcome</h2>
+        <p>
+          Thanks for stopping by my official website! More information about me is located in the
+          <a href="about.html" class="inline-link">about</a> section.
+          To view the dates I am performing in 2026, view
+          <a href="schedule.html" class="inline-link">schedule</a>.
+          For interest in classes or 1 on 1 lessons click
+          <a href="classes.html" class="inline-link">classes</a>.
+          For questions, bookings, or feedback, reach out on my
+          <a href="contact.html" class="inline-link">contact</a> page.
+        </p>
+      </div>
+    </main>
+
+    <!-- RIGHT COLUMN: sticky content (news, offers, site info, social) -->
+    <aside class="right-col" aria-label="News and info"></aside>
+
   </div>
 
-  <section id="hero">
-    <div class="overlay">
-      <h2>INSPIRED BY EXCELLENCE</h2>
-      <p>Driven by creativity, precision, and purpose.</p>
-    </div>
-  </section>
-
-  <main id="content-area">
-    <div id="main-content">
-      <h2>Welcome</h2>
-      <p>
-        Thanks for stopping to my official website! More information about me is located in the 
-        <a href="about.html" class="inline-link">about</a> section.
-        To view the dates I am performing in 2026, view 
-        <a href="schedule.html" class="inline-link">schedule</a>.
-        For interest in classes or 1 on 1 lessons click 
-        <a href="classes.html" class="inline-link">classes</a>.
-        For FAQ's and more miscellaneous information search my website by clicking 
-        <a href="explore.html" class="inline-link">explore</a>.
-      </p>
-    </div>
-
-    <aside id="sidebar">
-      <h3>Latest Updates</h3>
-      <p>Website redesign complete.</p>
-      <p>Logo linked to Instagram.</p>
-      <p>New sky‑blue theme applied.</p>
-    </aside>
-  </main>
-
-  <footer>© 2026 Jackson Webb</footer>
+  <!-- FOOTER: copyright, year, links, contact, privacy, webmaster -->
+  <footer class="site-footer"></footer>
 
 </div>
 
-<script>
-document.addEventListener("mousemove", function(e) {
-  const glow = document.getElementById("cursor-glow");
-  glow.style.left = e.pageX + "px";
-  glow.style.top = e.pageY + "px";
-});
-</script>
-
+<script src="./navigation.js"></script>
 </body>
 </html>

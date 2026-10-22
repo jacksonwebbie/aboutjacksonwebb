@@ -2,44 +2,66 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Classes | Jackson Webb</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
-<div id="page-wrapper">
+<div id="cursor-glow"></div>
 
-  <header>
-    <a href="https://www.instagram.com/jacksonwebbie?stkn=cDRqbDBwdnl0NHpw&utm_source=qr" target="_blank">
-      <img src="jw-logo.png" id="logo-img">
+<div class="page">
+
+  <!-- HEADER: logo, info graphic, primary navigation -->
+  <header class="site-header">
+    <a class="logo" href="https://www.instagram.com/jacksonwebbie" target="_blank" rel="noopener">
+      <img src="./jw-logo.png" alt="Jackson Webb logo, links to Instagram">
     </a>
-    <div id="site-info">
-      <h1>My Classes</h1>
-      <p>Courses I'm taking and academic progress.</p>
+    <div class="header-right">
+      <div class="info-graphic">
+        <p class="brand">Jackson Webb</p>
+        <p class="tagline">Inspired by excellence · Driven by creativity, precision, and purpose</p>
+      </div>
+      <nav class="primary-nav" aria-label="Primary"></nav>
     </div>
   </header>
 
-  <div id="content-area">
-    <div id="main-content">
-      <h2>Class Overview</h2>
-      <p>
-        This page lists the classes I am currently taking, along with descriptions, goals,
-        and academic progress.
-      </p>
-    </div>
+  <div class="layout">
 
-    <div id="sidebar">
-      <h3>Academic Info</h3>
-      <p>Course list</p>
-      <p>Progress</p>
-      <p>Goals</p>
-    </div>
+    <!-- LEFT COLUMN: primary and secondary navigation -->
+    <aside class="left-col">
+      <nav class="side-nav" aria-label="Site pages"></nav>
+      <nav class="secondary-nav" aria-label="On this page"></nav>
+    </aside>
+
+    <!-- MAIN CONTENT: hero image at top, then text and images -->
+    <main class="main-col">
+      <section class="hero">
+        <div class="hero-text">
+          <h1>My Classes</h1>
+          <p>Courses I'm taking and academic progress.</p>
+        </div>
+      </section>
+
+      <div class="content">
+        <h2>Class Overview</h2>
+        <p>
+          This page lists the classes I am currently taking, along with descriptions, goals,
+          and academic progress.
+        </p>
+      </div>
+    </main>
+
+    <!-- RIGHT COLUMN: sticky content (news, offers, site info, social) -->
+    <aside class="right-col" aria-label="News and info"></aside>
+
   </div>
 
-  <footer>© 2026 Jackson Webb</footer>
+  <!-- FOOTER: copyright, year, links, contact, privacy, webmaster -->
+  <footer class="site-footer"></footer>
 
 </div>
 
-<script src="navigation.js"></script>
+<script src="./navigation.js"></script>
 </body>
 </html>

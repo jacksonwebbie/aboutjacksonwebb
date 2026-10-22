@@ -2,72 +2,76 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Schedule | Jackson Webb</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
 <div id="cursor-glow"></div>
 
-<div id="page-wrapper">
+<div class="page">
 
-  <header>
-    <a href="https://www.instagram.com/jacksonwebbie" target="_blank">
-      <img src="jw-logo.png" id="logo-img">
+  <!-- HEADER: logo, info graphic, primary navigation -->
+  <header class="site-header">
+    <a class="logo" href="https://www.instagram.com/jacksonwebbie" target="_blank" rel="noopener">
+      <img src="./jw-logo.png" alt="Jackson Webb logo, links to Instagram">
     </a>
-    <div id="site-info">
-      <h1>My Schedule</h1>
-      <p>All my upcoming events and dates! Book me for your personal events under the 'Classes' page.</p>
+    <div class="header-right">
+      <div class="info-graphic">
+        <p class="brand">Jackson Webb</p>
+        <p class="tagline">Inspired by excellence · Driven by creativity, precision, and purpose</p>
+      </div>
+      <nav class="primary-nav" aria-label="Primary"></nav>
     </div>
   </header>
 
-  <script src="navigation.js"></script>
+  <div class="layout">
 
-  <div id="button-row">
-    <a href="about.html"><button class="mini-btn">About</button></a>
-    <a href="schedule.html"><button class="mini-btn">Schedule</button></a>
-    <a href="explore.html"><button class="mini-btn">Explore</button></a>
-    <a href="classes.html"><button class="mini-btn">Classes</button></a>
-    <a href="shop.html"><button class="mini-btn">Shop</button></a>
+    <!-- LEFT COLUMN: primary and secondary navigation -->
+    <aside class="left-col">
+      <nav class="side-nav" aria-label="Site pages"></nav>
+      <nav class="secondary-nav" aria-label="On this page"></nav>
+    </aside>
+
+    <!-- MAIN CONTENT: hero image at top, then text and images -->
+    <main class="main-col">
+      <section class="hero">
+        <div class="hero-text">
+          <h1>My Schedule</h1>
+          <p>All my upcoming events and dates! Book me for your personal events under the 'Classes' page.</p>
+        </div>
+      </section>
+
+      <div class="content">
+        <h2>Schedule</h2>
+        <div class="table-wrap">
+          <table class="schedule-table">
+            <tr>
+              <th>Dates</th>
+              <th>Location</th>
+            </tr>
+            <tr><td>09/17/26</td><td>Outlaws @ Ames</td></tr>
+            <tr><td>10/08/26</td><td>Outlaws @ Ames</td></tr>
+            <tr><td>11/05/26</td><td>Outlaws @ Ames</td></tr>
+            <tr><td>11/20/26</td><td>Outlaws @ Ames</td></tr>
+            <tr><td>12/03/26</td><td>Outlaws @ Ames</td></tr>
+          </table>
+        </div>
+        <p>Want to book me for a private event? <a href="contact.html" class="inline-link">Send me a message</a>.</p>
+      </div>
+    </main>
+
+    <!-- RIGHT COLUMN: sticky content (news, offers, site info, social) -->
+    <aside class="right-col" aria-label="News and info"></aside>
+
   </div>
 
-  <div id="content-area">
-    <div id="main-content">
-      <h2>Schedule</h2>
-
-      <table class="schedule-table">
-        <tr>
-          <th>Dates</th>
-          <th>Location</th>
-        </tr>
-        <tr><td>09/17/26</td><td>Outlaws @ Ames</td></tr>
-        <tr><td>10/08/26</td><td>Outlaws @ Ames</td></tr>
-        <tr><td>11/05/26</td><td>Outlaws @ Ames</td></tr>
-        <tr><td>11/20/26</td><td>Outlaws @ Ames</td></tr>
-        <tr><td>12/03/26</td><td>Outlaws @ Ames</td></tr>
-      </table>
-
-    </div>
-
-    <div id="sidebar">
-      <h3>Favorites</h3>
-      <p>Book Me</p>
-      <p>My Music</p>
-      <p>What's New</p>
-    </div>
-  </div>
-
-  <footer>© 2026 Jackson Webb</footer>
+  <!-- FOOTER: copyright, year, links, contact, privacy, webmaster -->
+  <footer class="site-footer"></footer>
 
 </div>
 
-<script>
-document.addEventListener("mousemove", function(e) {
-  const glow = document.getElementById("cursor-glow");
-  glow.style.left = e.pageX + "px";
-  glow.style.top = e.pageY + "px";
-});
-</script>
-
+<script src="./navigation.js"></script>
 </body>
 </html>
